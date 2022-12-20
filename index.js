@@ -7,6 +7,7 @@ const { setTimeout } = require('timers/promises')
 
 const types = [
   { types: ['feat', 'feature'], header: 'New Features', icon: ':sparkles:' },
+  { types: ['task'], header: 'Changes', icon: ':rocket:' },
   { types: ['fix', 'bugfix'], header: 'Bug Fixes', icon: ':bug:', relIssuePrefix: 'fixes' },
   { types: ['perf'], header: 'Performance Improvements', icon: ':zap:' },
   { types: ['refactor'], header: 'Refactors', icon: ':recycle:' },
