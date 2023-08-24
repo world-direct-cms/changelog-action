@@ -168,8 +168,8 @@ async function main () {
         ...cAst,
         sha: commit.sha,
         url: commit.html_url,
-        author: commit.author.login,
-        authorUrl: commit.author.html_url
+        author: commit.author?.login ?? '',
+        authorUrl: commit.author?.html_url ?? ''
       })
       for (const note of cAst.notes) {
         if (note.title === 'BREAKING CHANGE') {
@@ -177,8 +177,8 @@ async function main () {
             sha: commit.sha,
             url: commit.html_url,
             subject: cAst.subject,
-            author: commit.author.login,
-            authorUrl: commit.author.html_url,
+            author: commit.author?.login ?? '',
+            authorUrl: commit.author?.html_url ?? '',
             text: note.text
           })
         }
@@ -191,8 +191,8 @@ async function main () {
           subject: commit.commit.message,
           sha: commit.sha,
           url: commit.html_url,
-          author: commit.author.login,
-          authorUrl: commit.author.html_url
+          author: commit.author?.login ?? '',
+          authorUrl: commit.author?.html_url ?? ''
         })
         core.info(`[OK] Commit ${commit.sha} with invalid type, falling back to other - ${commit.commit.message}`)
       } else {
